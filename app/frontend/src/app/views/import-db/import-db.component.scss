@@ -1,0 +1,63 @@
+@import "src/vars";
+
+:host {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    .import-block {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & > * {
+            margin: 10px 20px;
+        }
+
+        .title {
+            color: $pink;
+            font-size: 20pt;
+            font-weight: 700;
+        }
+
+        .description {
+            color: $brown;
+            margin: 0 0 100px 0;
+            max-width: 600px;
+            text-align: justify;
+            font-size: 14pt;
+        }
+
+        .import-btn {
+            border: none;
+            background: $brown;
+            color: $background;
+            padding: 10px;
+            width: 50%;
+            cursor: pointer;
+
+            &:hover {
+                background: $brown-hover;
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                background: $brown-disabled;
+            }
+        }
+
+        .default-btn {
+            border: none;
+            background: none;
+            color: $pink;
+            cursor: pointer;
+
+            &:hover {
+                color: $brown;
+            }
+        }
+    }
+}
