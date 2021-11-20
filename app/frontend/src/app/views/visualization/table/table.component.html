@@ -1,0 +1,33 @@
+<div *ngIf="isLoading" class="loading"><span></span></div>
+<div *ngIf="!isLoading" class="main-body">
+    <div class="table">
+        <span class="title">Accounts</span>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="!accounts.length">
+                    NO ACCOUNTS
+                </ng-container>
+                <tr *ngFor="let account of accounts">
+                    <td>{{account.name}}</td>
+                    <td>{{account.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table">
+        <span class="title">Messages</span>
+        <table>
+            <thead>
+            <tr></tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
