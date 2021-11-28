@@ -1,0 +1,52 @@
+<div *ngIf="isLoading" class="loading"></div>
+<div *ngIf="!isLoading" class="main-body">
+    <div class="table accounts">
+        <h2 class="title">Accounts</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let account of accounts">
+                    <td>{{account.name}}</td>
+                    <td>{{account.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table">
+        <h2 class="title">Messages</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Recipient</th>
+                <th>Date</th>
+                <th>ReplyTo</th>
+                <th>Subject</th>
+                <th>Text</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let message of messages">
+                    <td class="sender">{{message.sender.name}} ({{message.sender.email}})</td>
+                    <td class="sender">{{message.recipient.name}} ({{message.recipient.email}})</td>
+                    <td>{{message.date | date:'medium'}}</td>
+                    <td>
+                        <div class="replyTo" *ngIf="message.replyTo; else noReply">
+                            <div>{{message.replyTo.sender.email}}</div>
+                            <div>{{message.replyTo.date | date:'medium'}}</div>
+                            <div>{{message.replyTo.text}}</div>
+                        </div>
+                        <ng-template #noReply>No reply</ng-template>
+                    </td>
+                    <td>{{message.subject}}</td>
+                    <td class="text">{{message.text}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+@import "src/vars";
+
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.root-content {
+    background: $background;
+    min-height: 100vh;
+}
+
+.menu {
+    flex: none;
+    background: $menu-bg;
+}

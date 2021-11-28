@@ -1,0 +1,17 @@
+<ul class="menu-items">
+    <li *ngFor="let item of menuItems; index as i;" class="menu-item">
+        <a *ngIf="!item.children.length" [routerLink]="item.path" class="menu-item__link">
+            <span>{{item.name}}</span>
+        </a>
+        <a *ngIf="item.children.length" class="menu-item__link">
+            <span>{{item.name}}</span>
+            <div *ngIf="item.children.length" class="submenu">
+                <li *ngFor="let sub of item.children; index as i;" class="menu-item">
+                    <a [routerLink]="sub.path" class="menu-item__link">
+                        <span>{{sub.name}}</span>
+                    </a>
+                </li>
+            </div>
+        </a>
+    </li>
+</ul>

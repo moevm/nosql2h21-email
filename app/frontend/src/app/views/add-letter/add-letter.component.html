@@ -1,0 +1,57 @@
+<div *ngIf="isLoading" class="loading"></div>
+<div *ngIf="!isLoading" class="inner-block">
+    <div *ngIf="!messageIsSend">
+        <h1>Add a new letter</h1>
+
+        <form [formGroup]="form">
+
+            <div class="row">
+                <div class="form-control">
+                    <div class="title">Sender</div>
+                    <select formControlName="sender">
+                        <option *ngFor="let account of accounts" [ngValue]="account">
+                            <span>{{account.name}}</span> ({{account.email}})
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <div class="title">Recipient</div>
+                    <select formControlName="recipient">
+                        <option *ngFor="let recipient of accounts" [ngValue]="recipient">
+                            <span>{{recipient.name}}</span> ({{recipient.email}})
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-control" *ngIf="messages.length > 0">
+                <div class="title">Reply To</div>
+                <select formControlName="replyTo">
+                    <option *ngFor="let message of messages" [ngValue]="message">
+                        {{message.date | date:'medium'}}, {{message.subject}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-control">
+                <div class="title">Subject</div>
+                <input formControlName="subject">
+            </div>
+
+            <div class="form-control">
+                <div class="title">Message text</div>
+                <textarea formControlName="text"></textarea>
+            </div>
+        </form>
+
+        <button (click)="onApply()" [disabled]="isDisabled()">
+            ADD THIS LETTER
+        </button>
+    </div>
+
+    <div class="message-send" *ngIf="messageIsSend">
+        Message is send!!!
+    </div>
+
+</div>
