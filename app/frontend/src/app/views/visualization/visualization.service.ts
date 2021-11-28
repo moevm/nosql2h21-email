@@ -14,7 +14,6 @@ export class VisualizationService {
     public getAllAccounts() {
         return this.accountService.getAllAccounts();
     }
-
     public getAllMessages() {
         return this.messageService.getAllMessages();
     }

@@ -11,6 +11,7 @@ import { TableComponent } from './views/visualization/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddLetterComponent } from './views/add-letter/add-letter.component';
 
+
 @NgModule({
   declarations: [
       AppComponent,

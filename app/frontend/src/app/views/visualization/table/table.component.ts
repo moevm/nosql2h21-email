@@ -18,6 +18,7 @@ export class TableComponent implements OnInit {
 
     public accounts: AccountModel[] = [];
     public messages: MessageModel[] = [];
+
     public isLoading = true;
 
     public ngOnInit() {
