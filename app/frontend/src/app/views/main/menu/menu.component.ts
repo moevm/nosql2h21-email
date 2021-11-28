@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {MenuItemModel} from "./menu.model";
-import {EXPORT_PATH, IMPORT_PATH, TABLE_VISUALIZATION_PATH, VISUALIZATION_PATH} from "../main.constants";
+import {ADD_LETTER, EXPORT_PATH, IMPORT_PATH, TABLE_VISUALIZATION_PATH, VISUALIZATION_PATH} from "../main.constants";
 
 const MENU = [
     new MenuItemModel('Import', `/${IMPORT_PATH}`),
@@ -10,7 +10,7 @@ const MENU = [
         new MenuItemModel('Graph', ``),
         new MenuItemModel('Key words', ``)
     ]),
-    new MenuItemModel('Add a Letter', ``)
+    new MenuItemModel('Add a Letter', `/${ADD_LETTER}`)
 ]
 
 @Component({

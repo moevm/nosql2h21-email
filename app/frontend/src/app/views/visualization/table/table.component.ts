@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {VisualizationService} from "../visualization.service";
 import {Account} from "../../../entities/Account/AccountModel";
 import AccountModel = Account.AccountModel;
-import {map} from "rxjs";
-import createCollection = Account.createCollection;
+import {Message} from "../../../entities/Message/MessageModel";
+import MessageModel = Message.MessageModel;
 
 @Component({
   selector: 'app-table',
@@ -17,13 +17,21 @@ export class TableComponent implements OnInit {
     ) { }
 
     public accounts: AccountModel[] = [];
+    public messages: MessageModel[] = [];
+
     public isLoading = true;
 
     public ngOnInit() {
         this.service.getAllAccounts()
             .subscribe(data => {
                 for (let a of Object.values(data)) {
-                    this.accounts.push(createCollection(a));
+                    this.accounts.push(Account.createCollection(a));
+                }
+            });
+        this.service.getAllMessages()
+            .subscribe(data => {
+                for (let a of Object.values(data)) {
+                    this.messages.push(Message.createCollection(a));
                 }
                 this.isLoading = false;
             });

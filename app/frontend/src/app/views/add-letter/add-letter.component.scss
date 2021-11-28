@@ -1,0 +1,104 @@
+@import "src/vars";
+
+:host {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    .inner-block {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        h1 {
+            color: $pink;
+        }
+
+        form {
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .title {
+                margin: 10px;
+                font-size: 12pt;
+                color: $brown;
+            }
+
+            select {
+                width: 300px;
+                margin-right: 30px;
+                padding: 5px;
+                font-size: 11pt;
+
+                option {
+                    font-size: 11pt;
+                    padding: 5px;
+                }
+            }
+
+            input {
+                width: 615px;
+                font-size: 11pt;
+                padding: 5px;
+            }
+
+            textarea {
+                width: 615px;
+                font-size: 11pt;
+                padding: 5px;
+                height: 200px;
+            }
+        }
+    }
+
+    .message-send {
+        font-size: 16pt;
+        color: green;
+    }
+
+    button {
+        margin-top: 30px;
+        width: 627px;
+        padding: 10px;
+        background: $brown;
+        color: white;
+        border: none;
+
+        &:disabled {
+            background: $brown-disabled;
+
+            &:hover {
+                background: $brown-disabled;
+                cursor: not-allowed;
+            }
+        }
+
+        &:hover {
+            background: $brown-hover;
+            cursor: pointer;
+        }
+    }
+
+    .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+
+        span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid $pink;
+            border-radius: 50%;
+            border-top-color: $background;
+            animation: spin 1s ease-in-out infinite;
+            -webkit-animation: spin 1s ease-in-out infinite;
+        }
+    }
+}
