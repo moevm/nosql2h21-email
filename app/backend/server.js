@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const accountRoutes = require('./routes/account');
+const messageRoutes = require('./routes/message');
 
 
 const app = express();
@@ -17,6 +18,7 @@ function setupApp() {
 
 function setupRoutes() {
     app.use('/api/accounts', accountRoutes);
+    app.use('/api/messages', messageRoutes);
 }
 
 function start() {
