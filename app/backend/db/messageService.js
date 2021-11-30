@@ -17,4 +17,7 @@ module.exports = {
         }
         return result;
     },
+    addMessage: async (message) => {
+        return Message.save(message);
+    }
 }

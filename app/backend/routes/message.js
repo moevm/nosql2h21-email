@@ -9,5 +9,11 @@ router.get('/', (req, res) => {
         });
 })
 
+router.post('/add', (req, res) => {
+    dbService.addMessage(req.body)
+        .then(result => {
+            res.send(result);
+        })
+})
 
 module.exports = router;
